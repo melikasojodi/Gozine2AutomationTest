@@ -8,3 +8,5 @@ class MainPage:
 
     def check_main_page(self):
         self.driver.find_element('xpath', mainpage_button_xpath)
+
+

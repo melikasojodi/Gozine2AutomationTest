@@ -1,3 +1,4 @@
+import os
 from EstimateRank.Pages.Calculate import Calculate
 from selenium import webdriver
 from time import sleep
@@ -71,4 +72,5 @@ class CalculateTest(unittest.TestCase):
         cls.driver.quit()
 
 
-
+if __name__ == '__main__':
+    unittest.main()
