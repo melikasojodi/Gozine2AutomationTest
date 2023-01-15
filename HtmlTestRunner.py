@@ -583,7 +583,7 @@ class _TestResult(TestResult):
             sys.stderr.write(str(test))
             sys.stderr.write('\n')
         else:
-            sys.stderr.write('.')
+            sys.stderr.write('HtmlTestRunner')
 
     def addError(self, test, err):
         self.error_count += 1

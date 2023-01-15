@@ -14,7 +14,7 @@ current_directory = os.getcwd()
 
 
 class HTML_TestRunner_TestSuite(unittest.TestCase):
-    def test_GoogleWiki_Search(self):
+    def test_All(self):
         # Create a TestSuite comprising the two test cases
         consolidated_test = unittest.TestSuite()
 
