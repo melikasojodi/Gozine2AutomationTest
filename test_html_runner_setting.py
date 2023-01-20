@@ -1,14 +1,10 @@
 import unittest
 import os
-
-# Import the HTMLTestRunner Module
+from time import sleep
 import EstimateRank.Tests.CalculateTest
+import EmailReport.Email
+from TestRunner import HTMLTestRunner
 import Login.Tests.LoginTest
-
-
-# Get the Present Working Directory since that is the place where the report
-# would be stored
-import HtmlTestRunner
 
 current_directory = os.getcwd()
 
@@ -16,22 +12,28 @@ current_directory = os.getcwd()
 class HTML_TestRunner_TestSuite(unittest.TestCase):
     def test_All(self):
         # Create a TestSuite comprising the two test cases
-        consolidated_test = unittest.TestSuite()
+        suit = unittest.TestSuite()
 
         # Add the test cases to the Test Suite
-        consolidated_test.addTests([
+        suit.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(Login.Tests.LoginTest.LoginTests),
             unittest.defaultTestLoader.loadTestsFromTestCase(EstimateRank.Tests.CalculateTest.CalculateTest)
+
         ])
 
-        output_file = open(current_directory + "\HTML_Test_Runner_ReportTest.html", "w")
+        report = current_directory + "\HTML_Test_Runner_ReportTest.html"
+        with(open(report, 'wb')) as fp:
+            runner = HTMLTestRunner(
+                stream=fp,
+                title='Unit Test report',
+                description='unit test'
+            )
+            runner.run(suit)
 
-        html_runner = HtmlTestRunner.HtmlTestRunner(
-            stream=output_file,
+            sleep(40)
 
-        )
-
-        html_runner.run(consolidated_test)
+    email = EmailReport.Email.Email()
+    print(email.send_email())
 
 
 if __name__ == '__main__':
