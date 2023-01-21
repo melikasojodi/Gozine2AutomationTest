@@ -11,7 +11,7 @@ current_directory = os.getcwd()
 
 
 class HTML_TestRunner_TestSuite(unittest.TestCase):
-    def test1_All(self):
+    def test1_all(self):
         # Create a TestSuite comprising the two test cases
         suit = unittest.TestSuite()
 
@@ -32,7 +32,7 @@ class HTML_TestRunner_TestSuite(unittest.TestCase):
             runner.run(suit)
             sleep(15)
 
-    def test2(self):
+    def test2_sendemail(self):
         self.email = EmailReport.Email.Email()
         print(self.email.send_email())
 
