@@ -1,10 +1,8 @@
 import os
 import smtplib
-import unittest
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from pathlib import Path
 
 
 class Email:
@@ -52,6 +50,3 @@ class Email:
         s.sendmail(sender, receiver, msg.as_string())
 
         s.quit()
-
-        if __name__ == '__main__':
-            unittest.main()

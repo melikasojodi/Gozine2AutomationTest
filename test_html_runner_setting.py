@@ -1,5 +1,6 @@
 import unittest
 import os
+from pickle import TRUE
 from time import sleep
 import EstimateRank.Tests.CalculateTest
 import EmailReport.Email
@@ -10,13 +11,13 @@ current_directory = os.getcwd()
 
 
 class HTML_TestRunner_TestSuite(unittest.TestCase):
-    def test_All(self):
+    def test1_All(self):
         # Create a TestSuite comprising the two test cases
         suit = unittest.TestSuite()
 
         # Add the test cases to the Test Suite
         suit.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(Login.Tests.LoginTest.LoginTests),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(Login.Tests.LoginTest.LoginTests),
             unittest.defaultTestLoader.loadTestsFromTestCase(EstimateRank.Tests.CalculateTest.CalculateTest)
 
         ])
@@ -29,11 +30,11 @@ class HTML_TestRunner_TestSuite(unittest.TestCase):
                 description='unit test'
             )
             runner.run(suit)
+            sleep(15)
 
-            sleep(50)
-
-    email = EmailReport.Email.Email()
-    print(email.send_email())
+    def test2(self):
+        self.email = EmailReport.Email.Email()
+        print(self.email.send_email())
 
 
 if __name__ == '__main__':

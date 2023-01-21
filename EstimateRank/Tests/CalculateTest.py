@@ -5,14 +5,14 @@ from time import sleep
 import unittest
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+
 
 class CalculateTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.chrome_options = Options()
         cls.chrome_options.add_argument("--headless")
-        cls.service = Service(executable_path=ChromeDriverManager().install())
+        cls.service = Service(executable_path="C:\chromedriver.exe")
         cls.driver = webdriver.Chrome(service=cls.service, chrome_options=cls.chrome_options)
         cls.driver.implicitly_wait(3)
         cls.driver.maximize_window()
