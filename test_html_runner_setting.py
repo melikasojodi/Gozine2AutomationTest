@@ -17,7 +17,7 @@ class HTML_TestRunner_TestSuite(unittest.TestCase):
 
         # Add the test cases to the Test Suite
         suit.addTests([
-            # unittest.defaultTestLoader.loadTestsFromTestCase(Login.Tests.LoginTest.LoginTests),
+            unittest.defaultTestLoader.loadTestsFromTestCase(Login.Tests.LoginTest.LoginTests),
             unittest.defaultTestLoader.loadTestsFromTestCase(EstimateRank.Tests.CalculateTest.CalculateTest)
 
         ])
