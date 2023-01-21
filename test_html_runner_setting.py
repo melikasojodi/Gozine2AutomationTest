@@ -30,7 +30,7 @@ class HTML_TestRunner_TestSuite(unittest.TestCase):
             )
             runner.run(suit)
 
-            sleep(40)
+            sleep(50)
 
     email = EmailReport.Email.Email()
     print(email.send_email())
